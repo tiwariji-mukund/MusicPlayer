@@ -1,0 +1,181 @@
+#theme{
+    margin: 2vh 0 0 95vw;
+}
+
+.heading{
+    text-align: center;
+    letter-spacing: 1.2px;
+    font-weight: 600;
+    font-size: 2.2rem;
+    font-family: 'Noto Sans', sans-serif;
+}
+
+
+.container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#genre, #playlist{
+    width: 25%;
+    padding: 5px 10px;
+    height: 100vh;
+}
+
+#player{
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+#myPlaylist{
+    height: 94vh;
+    width: 80%;
+}
+
+#genre, #player, #myPlaylist{
+    border-radius: 10px;
+    background-color: hsl(199.83deg 63.54% 64.51%);
+    padding: 0 10px;
+    padding-top: 2%;
+    box-shadow: -7px -7px 6px -3px #6f69a5;
+}
+
+#createPlaylistForm{
+    margin: -6px 0 10px -12px;
+}
+
+input[type="text"] {
+  width: 50%;
+  height:35px;
+  font-size: 1rem;
+  margin-bottom: 10px;
+  padding: 0px 10px;
+  border-radius: 5px 0 0 5px;
+}
+
+button[type="submit"] {
+  padding: 10px;
+  border-radius: 0 5px 5px 0;
+  font-size: 1rem;
+  background-color: rgb(145, 92, 252);
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  margin-left: -3.72px;
+}
+
+button[type="submit"]:hover {
+  background-color: #723eda;
+  transition: 0.5s ease-in;
+}
+
+.name, .all-songs{
+    cursor: pointer;
+    list-style: none;
+    background-color: rgb(11 127 187);
+    color: #fff;
+    padding: 10px 15px;
+    font-size: 1.2rem;
+    border-radius: 5px;
+    word-break: break-all;
+}
+
+.name{
+    text-align: center;
+    min-width: 50%;
+    max-width: max-content;
+    margin: 10px auto;
+}
+
+.all-songs{
+    margin: 10px;
+    width: fit-content;
+}
+
+.name:hover, .all-songs:hover{
+    background-color: hsl(199.83deg 63.54% 64.51%);
+}
+
+option{
+    background-color: hsl(199.83deg 63.54% 64.51%);
+}
+
+#myGenre{
+    padding: 5px;
+    font-size: 1rem;
+    background-color: hsl(200.27deg 37% 39.22%);
+    border-radius: 5px;
+}
+
+option:hover{
+     background-color: hsl(199.83deg 63.54% 64.51%);
+}
+
+label{
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+#player-image{
+    background-color: #0472aa;
+    height: 60%;
+    width: 85%;
+    border-radius: 10px;
+    box-shadow: -7px -7px 6px -3px #6f69a5;
+}
+
+#player-image img{
+    height: 77%;
+    width: 95%;
+    margin: 10px;
+}
+
+
+#artist-name, #song-name{
+    margin: 0 0 0 15px;
+}
+
+#artist-name{
+    font-family: 'Lato', sans-serif;
+}
+
+#song-name{
+    font-size: 1.5rem;
+    font-family: 'Mukta', sans-serif;
+}
+
+audio{
+    margin: 23px;
+    width: 80%;
+    padding: 10px 35px;
+}
+
+.controls{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+}
+
+.controls button{
+    width: fit-content;
+    border-radius: 5px;
+    padding: 10px 50px;
+    margin: 15px 0;
+    box-shadow: 0px 0px 10px 3px #6f69a5;
+}
+
+.control-btn{
+    display: flex;
+    justify-content: space-between;
+}
+
+#add-btn{
+    margin: auto;
+    max-width: fit-content;
+}

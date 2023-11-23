@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Music Player</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <input type="checkbox" id="theme" />
+    <h1 class="heading">Music Player</h1>
+    <div class="container">
+      <div id="genre">
+        <label for="all-genre">Filter by Genre: </label>
+
+        <select name="all-genre" id="myGenre">
+          <option value="All" selected>All</option>
+          <option value="Hip Hop">Hip Hop</option>
+          <option value="Rock">Rock</option>
+          <option value="Pop">Pop</option>
+        </select>
+        <div id="all-songs">
+          <h1>All Songs</h1>
+          <li class="all-songs">Faded - Alan Walker</li>
+          <li class="all-songs">faded</li>
+          <li class="all-songs">faded</li>
+          <li class="all-songs">faded faded faded fadedfaded</li>
+        </div>
+      </div>
+      <div id="player">
+        <div id="player-image">
+          <img src="./img.png" alt="" srcset="" />
+          <h1 id="artist-name">Alan Walker</h1>
+          <p id="song-name">Faded</p>
+        </div>
+        <audio controls>
+          <source src="music/Havana.mp3" type="audio/mp3" />
+        </audio>
+        <div class="controls">
+          <div class="control-btn">
+            <button id="previous" type="submit">&lt;=</button>
+            <button id="next" type="submit">=&gt;</button>
+          </div>
+          <button class="add-btn" id="add-btn" type="submit">
+            Add to Playlist
+          </button>
+        </div>
+      </div>
+      <div id="playlist">
+        <form id="createPlaylistForm">
+          <input
+            type="text"
+            id="playlistName"
+            placeholder="Enter playlist name"
+          />
+          <button type="submit" class="submit-button">Create Playlist</button>
+        </form>
+        <div id="myPlaylist">
+          <div class="currPlayList">
+            <h2>Current Playlist</h2>
+          </div>
+          <div class="allPlayList">
+            <h2>All Playlists</h2>
+            <li class="name">hello</li>
+            <li class="name">hello2</li>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
