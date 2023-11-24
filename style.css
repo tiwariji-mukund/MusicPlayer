@@ -102,8 +102,13 @@ button[type="submit"]:hover {
     background-color: hsl(199.83deg 63.54% 64.51%);
 }
 
+select{
+    background-color: hsl(199.78deg 78.85% 44.51%);
+}
+
 option{
-    background-color: hsl(199.83deg 63.54% 64.51%);
+    background-color: hsl(200, 83%, 30%);
+
 }
 
 #myGenre{
