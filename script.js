@@ -1,90 +1,128 @@
 // songs
 
-const aloneSong = new Audio("./music/Alone.mp3");
-const fadedSong = new Audio("./music/Faded.mp3");
-const sandstormSong = new Audio("./music/First Fighting a Sandstorm.mp3");
-const loveSong = new Audio("./music/Love You Like A Love Song.mp3");
-const prettyGirlSong = new Audio("./music/Pretty Girl.mp3");
-
 const songs = [
   {
+    songId: "1",
     name: "Faded",
     artist: "Alan Walker",
-    music_path: fadedSong,
-    image: "./img.png",
+    music_path: "./music/Alone.mp3",
+    image: "./artist/alan-walker-faded.jpeg",
   },
   {
+    songId: "2",
     name: "Alone",
     artist: "Alan Walker",
-    music_path: aloneSong,
-    image: "./img.png",
+    music_path: "./music/Faded.mp3",
+    image: "./artist/alan-walker.jpeg",
   },
   {
+    songId: "3",
     name: "First Fighting a Sandstorm",
     artist: "Sia",
-    music_path: sandstormSong,
-    image: "./img.png",
+    music_path: "./music/First Fighting a Sandstorm.mp3",
+    image: "./artist/sia.jpeg",
   },
   {
+    songId: "4",
     name: "Love You Like A Love Song",
     artist: "Selena Gomez",
-    music_path: loveSong,
-    image: "./img.png",
+    music_path: "./music/Love You Like A Love Song.mp3",
+    image: "./artist/selena-gomez.jpeg",
   },
   {
+    songId: "5",
     name: "Pretty Girl",
     artist: "Maggie Lindemann",
-    music_path: prettyGirlSong,
-    image: "./img.png",
+    music_path: "./music/Pretty Girl.mp3",
+    image: "./artist/Maggie-Lindemann.jpeg",
   },
 ];
 
 function MusicPlayer() {
   const artistName = document.getElementById("artist-name");
   const songName = document.getElementById("song-name");
-  const image = document.getElementById("image");
+  const artistImage = document.getElementById("image");
   const allSongs = document.getElementById("all-songs");
-  let current = 0 % songs.length;
-  let currentSong = songs[current].music_path;
-  songName.textContent = `${songs[current].name} - ${songs[current].artist}`;
+  const audioPlayer = document.getElementById("audio-player");
+  const backBtn = document.getElementById("previous");
+  const nextBtn = document.getElementById("next");
+  const name = document.getElementById("playlistName");
+  let current = 0;
+
+  nextBtn.addEventListener("click", () => {
+    current++;
+    current %= songs.length;
+    playSong(songs[current]);
+  });
+
+  backBtn.addEventListener("click", () => {
+    if (current === 0) current = songs.length - 1;
+    else current--;
+    playSong(songs[current]);
+  });
 
   // display all songs
   songs.forEach((song) => {
     const newSong = document.createElement("li");
     newSong.classList.add("all-songs");
     newSong.textContent = `${song.name} - ${song.artist}`;
+    newSong.addEventListener("click", () => {
+      playSong(song);
+    });
     allSongs.appendChild(newSong);
   });
 
-  // music player
-  
+  const addPlaylist = document.getElementById("add-btn");
+  const currPlayList = document.querySelector(".currPlayList");
+  const currPlayListArray = [];
+  const allPlayListArray = [];
+  addPlaylist.addEventListener("click", () => {
+    currentPlaylistSongs(currPlayListArray, songName.textContent);
+  });
+
+  // function to add song in current playlist
+  function currentPlaylistSongs(arr, song) {
+    if (!arr.includes(song)) {
+      arr.push(song);
+      displayAllSongs();
+    }
+  }
+  // function to display all songs
+  function displayAllSongs() {
+    const song = document.createElement("li");
+    song.classList.add("name");
+    song.textContent = currPlayListArray[currPlayListArray.length - 1];
+    currPlayList.appendChild(song);
+  }
+
+  function playSong(song) {
+    artistImage.src = song.image;
+    artistImage.alt = `${song.artist}`;
+    artistName.textContent = song.artist;
+    songName.textContent = song.name;
+    audioPlayer.src = song.music_path;
+    audioPlayer.play();
+  }
+  // script for create playlist
+
+  function createPlaylist(e) {
+    e.preventDefault();
+    const playlist = document.createElement("li");
+    playlist.classList.add("name");
+    playlist.textContent = name.value;
+    const allPlaylist = document.querySelector(".allPlayList");
+    allPlaylist.appendChild(playlist);
+    showAllPlaylst(allPlayListArray, playlist.textContent);
+    name.value = "";
+    console.log(allPlayListArray);
+  }
+
+  function showAllPlaylst(arr, playlist) {
+    if (!arr.includes(playlist)) arr.push(playlist);
+  }
+  document
+    .getElementById("createPlaylistForm")
+    .addEventListener("submit", createPlaylist);
 }
-
-// script for create playlist
-
-function createPlaylist(e) {
-  e.preventDefault();
-  const name = document.getElementById("playlistName");
-  const playlist = document.createElement("li");
-  playlist.classList.add("name");
-  playlist.textContent = name.value;
-  const allPlaylist = document.querySelector(".allPlayList");
-  console.log(playlist);
-  allPlaylist.appendChild(playlist);
-  name.innerHTML = "";
-}
-
-document
-  .getElementById("createPlaylistForm")
-  .addEventListener("submit", createPlaylist);
-
-const addPlaylist = document.getElementById("add-btn");
-const currPlayList = document.querySelector(".currPlayList");
-addPlaylist.addEventListener("click", () => {
-  const song = document.createElement("li");
-  song.classList.add("name");
-  song.textContent = "Faded";
-  currPlayList.appendChild(song);
-});
 
 MusicPlayer();

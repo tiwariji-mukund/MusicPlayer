@@ -1,3 +1,7 @@
+*{
+    font-family: 'Ubuntu', sans-serif;
+}
+
 #theme{
     margin: 2vh 0 0 95vw;
 }
@@ -56,18 +60,17 @@ input[type="text"] {
   font-size: 1rem;
   margin-bottom: 10px;
   padding: 0px 10px;
-  border-radius: 5px 0 0 5px;
+  border-radius: 5px;
 }
 
 button[type="submit"] {
   padding: 10px;
-  border-radius: 0 5px 5px 0;
+  border-radius: 5px;
   font-size: 1rem;
   background-color: rgb(145, 92, 252);
   color: #fff;
   border: none;
   cursor: pointer;
-  margin-left: -3.72px;
 }
 
 button[type="submit"]:hover {
@@ -100,6 +103,7 @@ button[type="submit"]:hover {
 
 .name:hover, .all-songs:hover{
     background-color: hsl(199.83deg 63.54% 64.51%);
+    transition: 0.5s ease-in;
 }
 
 select{
@@ -139,6 +143,7 @@ label{
     height: 77%;
     width: 95%;
     margin: 10px;
+    border-radius: 10px;
 }
 
 
@@ -148,10 +153,10 @@ label{
 
 #artist-name{
     font-family: 'Lato', sans-serif;
+    font-size: 1.5rem;
 }
 
 #song-name{
-    font-size: 1.5rem;
     font-family: 'Mukta', sans-serif;
 }
 
@@ -178,6 +183,10 @@ audio{
 .control-btn{
     display: flex;
     justify-content: space-between;
+}
+
+i{
+    font-size: 1.2rem;
 }
 
 #add-btn{

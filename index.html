@@ -10,6 +10,13 @@
       href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@800&display=swap"
       rel="stylesheet"
     />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+      integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
@@ -31,17 +38,25 @@
       </div>
       <div id="player">
         <div id="player-image">
-          <img src="./img.png" alt="Audio Image" id="image" />
-          <h1 id="artist-name">Alan Walker</h1>
-          <p id="song-name">Faded</p>
+          <img
+            src="./artist/alan-walker-faded.jpeg"
+            alt="Alan Walker"
+            id="image"
+          />
+          <h1 id="song-name">Faded</h1>
+          <p id="artist-name">Alan Walker</p>
         </div>
-        <audio controls>
-          <source src="music/Havana.mp3" type="audio/mp3" />
+        <audio id="audio-player" controls>
+          <source src="./music/Faded.mp3" type="audio/mp3" />
         </audio>
         <div class="controls">
           <div class="control-btn">
-            <button id="previous" type="submit">&lt;=</button>
-            <button id="next" type="submit">=&gt;</button>
+            <button id="previous" type="submit">
+              <i class="fa-solid fa-backward-step"></i>
+            </button>
+            <button id="next" type="submit">
+              <i class="fa-solid fa-forward-step"></i>
+            </button>
           </div>
           <button class="add-btn" id="add-btn" type="submit">
             Add to Playlist
