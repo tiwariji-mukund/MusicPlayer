@@ -3,6 +3,7 @@
 const songs = [
   {
     songId: "1",
+    genre: "Hip Hop",
     name: "Faded",
     artist: "Alan Walker",
     music_path: "./music/Alone.mp3",
@@ -10,6 +11,7 @@ const songs = [
   },
   {
     songId: "2",
+    genre: "Rock",
     name: "Alone",
     artist: "Alan Walker",
     music_path: "./music/Faded.mp3",
@@ -17,6 +19,7 @@ const songs = [
   },
   {
     songId: "3",
+    genre: "Hip Hop",
     name: "First Fighting a Sandstorm",
     artist: "Sia",
     music_path: "./music/First Fighting a Sandstorm.mp3",
@@ -24,6 +27,7 @@ const songs = [
   },
   {
     songId: "4",
+    genre: "Pop",
     name: "Love You Like A Love Song",
     artist: "Selena Gomez",
     music_path: "./music/Love You Like A Love Song.mp3",
@@ -31,6 +35,7 @@ const songs = [
   },
   {
     songId: "5",
+    genre: "Pop",
     name: "Pretty Girl",
     artist: "Maggie Lindemann",
     music_path: "./music/Pretty Girl.mp3",
@@ -123,6 +128,25 @@ function MusicPlayer() {
   document
     .getElementById("createPlaylistForm")
     .addEventListener("submit", createPlaylist);
+
+  // filter song using genre
+  const genre = document.getElementById("myGenre");
+  genre.addEventListener("change", filterSong);
+  function filterSong() {
+    const selectedGenre = genre.value;
+    allSongs.innerHTML = "<h1>All Songs</h1>";
+    songs.forEach((song) => {
+      if (selectedGenre === "All" || selectedGenre === song.genre) {
+        const newSong = document.createElement("li");
+        newSong.classList.add("all-songs");
+        newSong.textContent = `${song.name} - ${song.artist}`;
+        newSong.addEventListener("click", () => {
+          playSong(song);
+        });
+        allSongs.appendChild(newSong);
+      }
+    });
+  }
 }
 
 MusicPlayer();
