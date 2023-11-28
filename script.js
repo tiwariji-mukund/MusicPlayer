@@ -2,7 +2,6 @@
 
 const songs = [
   {
-    songId: "1",
     genre: "Hip Hop",
     name: "Faded",
     artist: "Alan Walker",
@@ -10,7 +9,6 @@ const songs = [
     image: "./artist/alan-walker-faded.jpeg",
   },
   {
-    songId: "2",
     genre: "Rock",
     name: "Alone",
     artist: "Alan Walker",
@@ -18,7 +16,6 @@ const songs = [
     image: "./artist/alan-walker.jpeg",
   },
   {
-    songId: "3",
     genre: "Hip Hop",
     name: "First Fighting a Sandstorm",
     artist: "Sia",
@@ -26,7 +23,6 @@ const songs = [
     image: "./artist/sia.jpeg",
   },
   {
-    songId: "4",
     genre: "Pop",
     name: "Love You Like A Love Song",
     artist: "Selena Gomez",
@@ -34,7 +30,6 @@ const songs = [
     image: "./artist/selena-gomez.jpeg",
   },
   {
-    songId: "5",
     genre: "Pop",
     name: "Pretty Girl",
     artist: "Maggie Lindemann",
@@ -96,6 +91,7 @@ function MusicPlayer() {
   function displayAllSongs() {
     const song = document.createElement("li");
     song.classList.add("name");
+    song.id = "currPlayListSong";
     song.textContent = currPlayListArray[currPlayListArray.length - 1];
     currPlayList.appendChild(song);
   }
@@ -112,14 +108,15 @@ function MusicPlayer() {
 
   function createPlaylist(e) {
     e.preventDefault();
-    const playlist = document.createElement("li");
-    playlist.classList.add("name");
-    playlist.textContent = name.value;
+    const newPlaylist = document.createElement("li");
+    newPlaylist.classList.add("name");
+    newPlaylist.id = "newPlaylist";
+    newPlaylist.textContent = name.value;
+
     const allPlaylist = document.querySelector(".allPlayList");
-    allPlaylist.appendChild(playlist);
-    showAllPlaylst(allPlayListArray, playlist.textContent);
+    allPlaylist.appendChild(newPlaylist);
+    showAllPlaylst(allPlayListArray, newPlaylist.textContent);
     name.value = "";
-    console.log(allPlayListArray);
   }
 
   function showAllPlaylst(arr, playlist) {
